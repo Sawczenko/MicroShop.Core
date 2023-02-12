@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Abstractions\MicroShop.Core.Abstractions.Containers\MicroShop.Core.Abstractions.Containers.csproj" />
+    <ProjectReference Include="..\Abstractions\MicroShop.Core.Abstractions.Mediator\MicroShop.Core.Abstractions.Mediator.csproj" />
+    <ProjectReference Include="..\Abstractions\MicroShop.Core.Abstractions.RequestHandlers\MicroShop.Core.Abstractions.RequestHandlers.csproj" />
+    <ProjectReference Include="..\Abstractions\MicroShop.Core.Abstractions.Services\MicroShop.Core.Abstractions.Services.csproj" />
+    <ProjectReference Include="..\Extensions\MicroShop.Core.Extensions\MicroShop.Core.Extensions.csproj" />
+    <ProjectReference Include="..\Interfaces\MicroShop.Core.Interfaces.Containers\MicroShop.Core.Interfaces.Containers.csproj" />
+    <ProjectReference Include="..\Interfaces\MicroShop.Core.Interfaces.Database\MicroShop.Core.Interfaces.Database.csproj" />
+    <ProjectReference Include="..\Interfaces\MicroShop.Core.Interfaces.Mediator\MicroShop.Core.Interfaces.Mediator.csproj" />
+    <ProjectReference Include="..\Interfaces\MicroShop.Core.Interfaces.RequestHandlers\MicroShop.Core.Interfaces.RequestHandlers.csproj" />
+    <ProjectReference Include="..\Interfaces\MicroShop.Core.Interfaces.Requests\MicroShop.Core.Interfaces.Requests.csproj" />
+    <ProjectReference Include="..\Interfaces\MicroShop.Core.Interfaces.Services\MicroShop.Core.Interfaces.Services.csproj" />
+    <ProjectReference Include="..\Mediator\MicroShop.Core.Mediator\MicroShop.Core.Mediator.csproj" />
+    <ProjectReference Include="..\Mediator\MicroShop.Core.Pipelines\MicroShop.Core.Pipelines.csproj" />
+    <ProjectReference Include="..\Models\MicroShop.Core.Models\MicroShop.Core.Models.csproj" />
+  </ItemGroup>
+
+</Project>
