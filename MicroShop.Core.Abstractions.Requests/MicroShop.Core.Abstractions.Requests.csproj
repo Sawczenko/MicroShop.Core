@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MicroShop.Core.Interfaces.Containers\MicroShop.Core.Interfaces.Containers.csproj" />
+    <ProjectReference Include="..\MicroShop.Core.Interfaces\MicroShop.Core.Interfaces.Requests.csproj" />
+  </ItemGroup>
+
+</Project>
