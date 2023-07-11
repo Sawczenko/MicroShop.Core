@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MicroShop.Core.Interfaces.Database\MicroShop.Core.Interfaces.Database.csproj" />
+    <ProjectReference Include="..\MicroShop.Core.Interfaces.Services\MicroShop.Core.Interfaces.Services.csproj" />
   </ItemGroup>
 
 </Project>

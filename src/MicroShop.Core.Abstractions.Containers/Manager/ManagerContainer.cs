@@ -1,5 +1,6 @@
 ﻿using MicroShop.Core.Interfaces.Containers.Manager;
 using MediatR;
+using MicroShop.Core.Interfaces.Services.Mapper;
 
 namespace MicroShop.Core.Abstractions.Containers.Manager
 {
@@ -7,9 +8,12 @@ namespace MicroShop.Core.Abstractions.Containers.Manager
     {
         public IMediator Mediator { get; set; }
 
-        public ManagerContainer(IMediator mediator)
+        public IMapperService MapperService { get; set; }
+
+        public ManagerContainer(IMediator mediator, IMapperService mapperService)
         {
             Mediator = mediator;
+            MapperService = mapperService;
         }
     }
 }
