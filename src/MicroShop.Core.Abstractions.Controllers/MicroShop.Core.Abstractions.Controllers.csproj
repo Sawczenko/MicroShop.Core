@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MicroShop.Core.Interfaces.Containers\MicroShop.Core.Interfaces.Containers.csproj" />
+    <ProjectReference Include="..\MicroShop.Core.Interfaces.Requests\MicroShop.Core.Interfaces.Requests.csproj" />
     <ProjectReference Include="..\MicroShop.Core.Models\MicroShop.Core.Models.csproj" />
   </ItemGroup>
 

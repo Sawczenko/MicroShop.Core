@@ -7,12 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.0.1" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MicroShop.Core.Interfaces.Database\MicroShop.Core.Interfaces.Database.csproj" />
     <ProjectReference Include="..\MicroShop.Core.Interfaces.Services\MicroShop.Core.Interfaces.Services.csproj" />
+    <ProjectReference Include="..\MicroShop.Core.Models\MicroShop.Core.Models.csproj" />
   </ItemGroup>
 
 </Project>

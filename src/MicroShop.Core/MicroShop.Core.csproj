@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<Version>1.0.6</Version>
+	<Version>1.0.7</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MicroShop.Core.Abstractions.Containers\MicroShop.Core.Abstractions.Containers.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\MicroShop.Core.Abstractions.Requests\MicroShop.Core.Abstractions.Requests.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\MicroShop.Core.Behaviours.Pipelines\MicroShop.Core.Behaviours.Pipelines.csproj" />
     <ProjectReference Include="..\MicroShop.Core.Extensions\MicroShop.Core.Extensions.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\MicroShop.Core.Interfaces.Containers\MicroShop.Core.Interfaces.Containers.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\MicroShop.Core.Interfaces.Database\MicroShop.Core.Interfaces.Database.csproj" PrivateAssets="all" />

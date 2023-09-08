@@ -1,7 +1,7 @@
 ﻿using MicroShop.Core.Interfaces.Services.Mapper;
 using MediatR;
 
-namespace MicroShop.Core.Interfaces.Containers.Manager
+namespace MicroShop.Core.Interfaces.Containers.Requests.Manager
 {
     public interface IManagerContainer
     {

@@ -1,8 +1,8 @@
-﻿using MicroShop.Core.Interfaces.Containers.Manager;
-using MediatR;
+﻿using MediatR;
 using MicroShop.Core.Interfaces.Services.Mapper;
+using MicroShop.Core.Interfaces.Containers.Requests.Manager;
 
-namespace MicroShop.Core.Abstractions.Containers.Manager
+namespace MicroShop.Core.Abstractions.Containers.Requests.Manager
 {
     public class ManagerContainer : IManagerContainer
     {

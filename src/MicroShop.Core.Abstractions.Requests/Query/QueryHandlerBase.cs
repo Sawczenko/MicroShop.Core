@@ -1,6 +1,6 @@
-﻿using MicroShop.Core.Interfaces.Containers.Query;
-using MicroShop.Core.Interfaces.Requests.Query;
+﻿using MicroShop.Core.Interfaces.Requests.Query;
 using MicroShop.Core.Interfaces.Database;
+using MicroShop.Core.Interfaces.Containers.Requests.Query;
 
 namespace MicroShop.Core.Abstractions.Requests.Query
 {
