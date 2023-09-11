@@ -4,7 +4,7 @@ using MediatR;
 
 namespace MicroShop.Core.Abstractions.Containers.Controllers
 {
-    internal class ControllerContainer : IControllerContainer
+    public class ControllerContainer : IControllerContainer
     {
         public IMediator Mediator { get; }
 

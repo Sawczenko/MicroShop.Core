@@ -26,6 +26,7 @@ namespace MicroShop.Core.Behaviours.Pipelines.Requests.Manager
                 applicationRequest.Response = response;
                 applicationRequest.CompletionDate = DateTime.Now;
                 applicationRequest.CalculateDuration();
+                applicationRequest.IsSuccess = true;
 
                 return response;
             }
