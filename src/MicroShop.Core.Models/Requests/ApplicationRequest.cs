@@ -14,12 +14,12 @@
 
         public bool IsSuccess { get; set; }
 
-        public void CalculateDuration()
+        public TimeSpan CalculateDuration()
         {
             if(CompletionDate != default && StartDate != default)
             {
                 Duration = CompletionDate - StartDate;
-                return;
+                return Duration;
             }
 
             throw new Exception("One of application request date fields is not valid!");

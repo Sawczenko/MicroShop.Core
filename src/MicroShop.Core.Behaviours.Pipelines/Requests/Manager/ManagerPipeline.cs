@@ -2,6 +2,7 @@
 using MicroShop.Core.Behaviours.Pipelines.Base;
 using MicroShop.Core.Models.Requests;
 using MediatR;
+using System.Diagnostics;
 
 namespace MicroShop.Core.Behaviours.Pipelines.Requests.Manager
 {
@@ -19,14 +20,22 @@ namespace MicroShop.Core.Behaviours.Pipelines.Requests.Manager
         {
             try
             {
+                Activity? activity = Activity.Current;
+                activity?.Start();
+                activity?.AddTag("Manager", typeof(TRequest).Name);
+
+                activity?.AddEvent(new(typeof(TRequest).Name + " - Started!"));
+
                 applicationRequest.StartDate = DateTime.Now;
 
                 var response = await next();
 
                 applicationRequest.Response = response;
                 applicationRequest.CompletionDate = DateTime.Now;
-                applicationRequest.CalculateDuration();
+                TimeSpan duration = applicationRequest.CalculateDuration();
                 applicationRequest.IsSuccess = true;
+
+                activity?.AddEvent(new(typeof(TRequest).Name + $" - Ended! Duration: {duration.TotalMilliseconds} ms."));
 
                 return response;
             }

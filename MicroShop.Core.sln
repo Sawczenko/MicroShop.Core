@@ -35,6 +35,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Core.Behaviours.P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Core.Abstractions.Controllers", "src\MicroShop.Core.Abstractions.Controllers\MicroShop.Core.Abstractions.Controllers.csproj", "{B9FD9639-8A5C-444E-91BA-78E5178374AC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Features", "Features", "{D757A79B-9DE2-497F-997A-D50277864AC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Core.Features.Telemetry", "src\MicroShop.Core.Features.Telemetry\MicroShop.Core.Features.Telemetry.csproj", "{EF9F4E20-02F4-4610-8D31-908C9DD954B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{5E4349B8-0DF3-4F2E-91BA-3B60F399ED7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Core.Configuration", "src\MicroShop.Core.Configuration\MicroShop.Core.Configuration.csproj", "{0C7C4770-13DE-4CF2-973D-1A172713E843}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +93,14 @@ Global
 		{B9FD9639-8A5C-444E-91BA-78E5178374AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9FD9639-8A5C-444E-91BA-78E5178374AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9FD9639-8A5C-444E-91BA-78E5178374AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF9F4E20-02F4-4610-8D31-908C9DD954B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF9F4E20-02F4-4610-8D31-908C9DD954B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF9F4E20-02F4-4610-8D31-908C9DD954B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF9F4E20-02F4-4610-8D31-908C9DD954B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C7C4770-13DE-4CF2-973D-1A172713E843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C7C4770-13DE-4CF2-973D-1A172713E843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C7C4770-13DE-4CF2-973D-1A172713E843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C7C4770-13DE-4CF2-973D-1A172713E843}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +116,8 @@ Global
 		{3C184A85-7D8C-4CED-A82A-022346D28B2F} = {3CA77124-BFD3-488B-A193-831605FC5B88}
 		{6A7B738B-4B86-44BE-A24E-3FA6ADFD4B5B} = {AEF991F7-E8E7-4FDE-B34C-5B1BD7DADAA2}
 		{B9FD9639-8A5C-444E-91BA-78E5178374AC} = {CE5A8192-CD8C-4DD2-905F-E9FEE3AC77E3}
+		{EF9F4E20-02F4-4610-8D31-908C9DD954B6} = {D757A79B-9DE2-497F-997A-D50277864AC4}
+		{0C7C4770-13DE-4CF2-973D-1A172713E843} = {5E4349B8-0DF3-4F2E-91BA-3B60F399ED7B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79A02078-4914-4CA5-91F7-DE21E405FB7B}
