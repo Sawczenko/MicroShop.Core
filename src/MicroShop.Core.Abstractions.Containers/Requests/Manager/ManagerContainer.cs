@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using MicroShop.Core.Interfaces.Containers.Requests.Manager;
 using MicroShop.Core.Interfaces.Services.Mapper;
-using MicroShop.Core.Interfaces.Containers.Requests.Manager;
+using MediatR;
 
 namespace MicroShop.Core.Abstractions.Containers.Requests.Manager
 {

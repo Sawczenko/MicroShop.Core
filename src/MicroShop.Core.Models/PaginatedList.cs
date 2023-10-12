@@ -4,7 +4,7 @@
     {
         public PagedList() 
         {
-        
+            Items = new List<T>();
         }
 
         public PagedList(IEnumerable<T> items, int count, int pageNumber, int pageSize)

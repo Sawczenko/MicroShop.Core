@@ -1,6 +1,6 @@
 ﻿namespace MicroShop.Core.Interfaces.Requests.Query
 {
-    public interface IQueryRoot
+    public interface IQueryRoot : ISubRequest
     {
     }
 }

@@ -1,8 +1,8 @@
 ﻿using MicroShop.Core.Interfaces.Requests.Manager;
 using MicroShop.Core.Behaviours.Pipelines.Base;
 using MicroShop.Core.Models.Requests;
-using MediatR;
 using System.Diagnostics;
+using MediatR;
 
 namespace MicroShop.Core.Behaviours.Pipelines.Requests.Manager
 {
@@ -18,30 +18,33 @@ namespace MicroShop.Core.Behaviours.Pipelines.Requests.Manager
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
+            Activity? activity = Activity.Current;
+
+            activity?.Start()
+                .AddTag("Manager", typeof(TRequest).Name)
+                .AddEvent(new(typeof(TRequest).Name + " - Started!"));
+
+            applicationRequest.StartDate = DateTime.Now;
+
             try
-            {
-                Activity? activity = Activity.Current;
-                activity?.Start();
-                activity?.AddTag("Manager", typeof(TRequest).Name);
-
-                activity?.AddEvent(new(typeof(TRequest).Name + " - Started!"));
-
-                applicationRequest.StartDate = DateTime.Now;
-
+            {               
                 var response = await next();
 
                 applicationRequest.Response = response;
-                applicationRequest.CompletionDate = DateTime.Now;
-                TimeSpan duration = applicationRequest.CalculateDuration();
                 applicationRequest.IsSuccess = true;
-
-                activity?.AddEvent(new(typeof(TRequest).Name + $" - Ended! Duration: {duration.TotalMilliseconds} ms."));
-
+                
                 return response;
             }
             catch (Exception ex)
             {
-                SetException(ex);
+                SetException(ex);                
+            }
+            finally
+            {
+                applicationRequest.CompletionDate = DateTime.Now;
+                TimeSpan duration = applicationRequest.CalculateDuration();
+
+                activity?.AddEvent(new(typeof(TRequest).Name + $" - Ended! Duration: {duration.TotalMilliseconds} ms."));
             }
 
             return default;
