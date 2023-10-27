@@ -22,7 +22,7 @@ namespace MicroShop.Core.Behaviours.Pipelines.Requests.Manager
 
             activity?.Start()
                 .AddTag("Manager", typeof(TRequest).Name)
-                .AddEvent(new(typeof(TRequest).Name + " - Started!"));
+                .AddEvent(new($"{typeof(TRequest).Name} - Started!"));
 
             applicationRequest.StartDate = DateTime.Now;
 

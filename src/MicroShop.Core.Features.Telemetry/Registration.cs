@@ -20,8 +20,19 @@ namespace MicroShop.Core.Features.Telemetry
                 .ConfigureResource(resource =>
                 {
                     resource.AddService(telemetryConfiguration.ServiceName, serviceVersion: telemetryConfiguration.ServiceVersion);
-                })
-                .AddConsoleExporter();
+                });
+
+                if (!string.IsNullOrEmpty(telemetryConfiguration.OtlpEndpoint))
+                {
+                    builder.AddOtlpExporter(opts =>
+                    {
+                        opts.Endpoint = new Uri(telemetryConfiguration.OtlpEndpoint);
+                    });
+                }
+                
+                #if DEBUG
+                builder.AddConsoleExporter();
+                #endif
             });
 
             return builder;
