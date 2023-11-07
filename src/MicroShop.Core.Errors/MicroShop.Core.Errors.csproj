@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MicroShop.Core.Errors\MicroShop.Core.Errors.csproj" />
+    <PackageReference Include="Ardalis.SmartEnum" Version="7.0.0" />
   </ItemGroup>
 
 </Project>

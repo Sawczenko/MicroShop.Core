@@ -1,5 +1,6 @@
 ﻿using MicroShop.Core.Behaviours.Pipelines.Base;
 using MicroShop.Core.Interfaces.Requests;
+using MicroShop.Core.Models.Exceptions;
 using MicroShop.Core.Models.Requests;
 using System.Diagnostics;
 using MediatR;
@@ -21,14 +22,10 @@ namespace MicroShop.Core.Behaviours.Pipelines.Requests.SubRequest
             var stopwatch = Stopwatch.StartNew();
 
             try
-            {         
+            {
                 var response = await next();
 
                 return response;
-            }
-            catch(Exception ex) 
-            {
-                SetException(ex);
             }
             finally
             {
@@ -36,8 +33,6 @@ namespace MicroShop.Core.Behaviours.Pipelines.Requests.SubRequest
 
                 activity?.AddEvent(new(typeof(TRequest).Name + $" - Ended! Duration: {stopwatch.ElapsedMilliseconds} ms."));
             }
-
-            return default;
         }
     }
 }

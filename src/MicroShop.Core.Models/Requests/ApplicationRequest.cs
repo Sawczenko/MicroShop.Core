@@ -1,4 +1,6 @@
-﻿namespace MicroShop.Core.Models.Requests
+﻿using System.Net;
+
+namespace MicroShop.Core.Models.Requests
 {
     public class ApplicationRequest
     {
@@ -12,7 +14,9 @@
 
         public Exception Exception { get; set; }
 
-        public bool IsSuccess { get; set; }
+        public bool IsSuccessful { get; set; }
+
+        public HttpStatusCode StatusCode { get; set; }
 
         public TimeSpan CalculateDuration()
         {

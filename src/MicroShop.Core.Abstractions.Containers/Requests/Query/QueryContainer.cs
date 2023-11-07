@@ -6,9 +6,9 @@ namespace MicroShop.Core.Abstractions.Containers.Requests.Query
     public class QueryContainer<TDbContext> : IQueryContainer<TDbContext>
         where TDbContext : IDbContext
     {
-        public IDbContext DbContext { get; set; }
+        public TDbContext DbContext { get; }
 
-        public QueryContainer(IDbContext dbContext)
+        public QueryContainer(TDbContext dbContext)
         {
             DbContext = dbContext;
         }

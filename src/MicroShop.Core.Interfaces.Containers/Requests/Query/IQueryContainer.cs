@@ -5,6 +5,6 @@ namespace MicroShop.Core.Interfaces.Containers.Requests.Query
     public interface IQueryContainer<TDbContext>
         where TDbContext : IDbContext
     {
-        public IDbContext DbContext { get; set; }
+        public TDbContext DbContext { get; }
     }
 }

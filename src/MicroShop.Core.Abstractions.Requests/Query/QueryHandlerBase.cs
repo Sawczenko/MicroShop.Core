@@ -4,7 +4,14 @@ using MicroShop.Core.Interfaces.Database;
 
 namespace MicroShop.Core.Abstractions.Requests.Query
 {
-    public abstract class QueryHandlerBase<TQuery, TDbContext,TResponse> : IQueryHandler<TQuery, TResponse>
+    public abstract class QueryHandlerBase<TQuery, TResponse> : IQueryHandler<TQuery, TResponse>
+        where TQuery : IQuery<TResponse>
+    {
+        public abstract Task<TResponse> Handle(TQuery query, CancellationToken cancellationToken);
+    }
+
+
+    public abstract class QueryHandlerBase<TQuery, TDbContext,TResponse> : QueryHandlerBase<TQuery, TResponse>
         where TQuery : IQuery<TResponse>
         where TDbContext : IDbContext
     {
@@ -14,7 +21,5 @@ namespace MicroShop.Core.Abstractions.Requests.Query
         {
             DbContext = queryContainer.DbContext;
         }
-
-        public abstract Task<TResponse> Handle(TQuery request, CancellationToken cancellationToken);
     }
 }

@@ -1,7 +1,8 @@
-﻿using MicroShop.Core.Interfaces.Requests.Manager;
+﻿using MicroShop.Core.Interfaces.Containers.Requests.Manager;
+using MicroShop.Core.Interfaces.Requests.Validator;
+using MicroShop.Core.Interfaces.Requests.Manager;
 using MicroShop.Core.Interfaces.Services.Mapper;
 using MediatR;
-using MicroShop.Core.Interfaces.Containers.Requests.Manager;
 
 namespace MicroShop.Core.Abstractions.Requests.Manager
 {
@@ -17,14 +18,19 @@ namespace MicroShop.Core.Abstractions.Requests.Manager
             mapperService = container.MapperService;
         }
 
-        public abstract Task<TResponse> Handle(TManager request, CancellationToken cancellationToken);
+        public abstract Task<TResponse> Handle(TManager manager, CancellationToken cancellationToken);
 
-        public async Task<TResult> Send<TResult>(IRequest<TResult> request, CancellationToken cancellationToken)
+        protected async Task<TResult> Send<TResult>(IRequest<TResult> request, CancellationToken cancellationToken)
         {
             return await mediator.Send(request, cancellationToken);
         }
 
-        public async Task<TResult> Map<TResult>(object sourceObject)
+        protected async Task<bool> Validate(IValidator validator, CancellationToken cancellationToken)
+        {
+            return await mediator.Send(validator, cancellationToken);
+        } 
+
+        protected async Task<TResult> Map<TResult>(object sourceObject)
         {
             return await Task.FromResult(mapperService.Map<TResult>(sourceObject));
         }

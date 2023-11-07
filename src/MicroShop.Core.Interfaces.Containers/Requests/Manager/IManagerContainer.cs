@@ -5,8 +5,8 @@ namespace MicroShop.Core.Interfaces.Containers.Requests.Manager
 {
     public interface IManagerContainer
     {
-        public IMediator Mediator { get; set; }
+        public IMediator Mediator { get; }
 
-        public IMapperService MapperService { get; set; }
+        public IMapperService MapperService { get;}
     }
 }

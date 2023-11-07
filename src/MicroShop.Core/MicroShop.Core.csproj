@@ -5,11 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<Version>1.0.23</Version>
+	<Version>1.0.29</Version>
 	<RepositoryUrl>https://github.com/Sawczenko/MicroShop.Core</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Ardalis.SmartEnum" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.6.0" />
     <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.6.0" />
@@ -27,6 +28,7 @@
     <ProjectReference Include="..\MicroShop.Core.Abstractions.Requests\MicroShop.Core.Abstractions.Requests.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\MicroShop.Core.Behaviours.Pipelines\MicroShop.Core.Behaviours.Pipelines.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\MicroShop.Core.Configuration\MicroShop.Core.Configuration.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\MicroShop.Core.Errors\MicroShop.Core.Errors.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\MicroShop.Core.Extensions\MicroShop.Core.Extensions.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\MicroShop.Core.Features.Telemetry\MicroShop.Core.Features.Telemetry.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\MicroShop.Core.Interfaces.Containers\MicroShop.Core.Interfaces.Containers.csproj" PrivateAssets="all" />

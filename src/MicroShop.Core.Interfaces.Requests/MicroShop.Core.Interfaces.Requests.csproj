@@ -14,4 +14,8 @@
     <Using Include="MediatR" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Command\" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,6 @@
 ﻿using MicroShop.Core.Interfaces.Containers.Controllers;
 using MicroShop.Core.Interfaces.Requests.Manager;
+using MicroShop.Core.Models.Responses;
 using MicroShop.Core.Models.Requests;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,12 +29,19 @@ namespace MicroShop.Core.Abstractions.Controllers.Controllers
 
         private IActionResult GetResponse(ApplicationRequest applicationRequest)
         {
-            if (applicationRequest.IsSuccess)
+            if (applicationRequest.IsSuccessful)
             {
-                return Ok(applicationRequest);
+                return StatusCode((int)applicationRequest.StatusCode, new ApplicationResponse
+                {
+                    Response = applicationRequest.Response
+                });
             }
 
-            return BadRequest(applicationRequest);
+            return StatusCode((int)applicationRequest.StatusCode, new ErrorResponse
+            {
+                ErrorCode = (int)applicationRequest.StatusCode,
+                Message = applicationRequest.Exception.Message
+            });
         }
     }
 }

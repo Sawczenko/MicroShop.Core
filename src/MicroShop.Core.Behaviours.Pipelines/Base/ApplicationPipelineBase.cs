@@ -1,4 +1,6 @@
-﻿using MicroShop.Core.Models.Requests;
+﻿using System.Net;
+using MicroShop.Core.Models.Exceptions;
+using MicroShop.Core.Models.Requests;
 
 namespace MicroShop.Core.Behaviours.Pipelines.Base
 {
@@ -13,8 +15,16 @@ namespace MicroShop.Core.Behaviours.Pipelines.Base
         
         protected void SetException(Exception exception)
         {
-            ApplicationRequest.IsSuccess = false;
+            ApplicationRequest.IsSuccessful = false;
             ApplicationRequest.Exception = exception;
+            ApplicationRequest.StatusCode = HttpStatusCode.InternalServerError;
+        }
+
+        protected void SetException(RequestException requestException)
+        {
+            ApplicationRequest.IsSuccessful = false;
+            ApplicationRequest.Exception = requestException;
+            ApplicationRequest.StatusCode = requestException.Error.HttpStatusCode;
         }
     }
 }

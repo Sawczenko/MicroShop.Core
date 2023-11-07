@@ -1,7 +1,9 @@
 ﻿using MicroShop.Core.Interfaces.Requests.Manager;
 using MicroShop.Core.Behaviours.Pipelines.Base;
+using MicroShop.Core.Models.Exceptions;
 using MicroShop.Core.Models.Requests;
 using System.Diagnostics;
+using System.Net;
 using MediatR;
 
 namespace MicroShop.Core.Behaviours.Pipelines.Requests.Manager
@@ -18,7 +20,7 @@ namespace MicroShop.Core.Behaviours.Pipelines.Requests.Manager
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
-            Activity? activity = Activity.Current;
+            Activity activity = Activity.Current;
 
             activity?.Start()
                 .AddTag("Manager", typeof(TRequest).Name)
@@ -27,17 +29,22 @@ namespace MicroShop.Core.Behaviours.Pipelines.Requests.Manager
             applicationRequest.StartDate = DateTime.Now;
 
             try
-            {               
+            {
                 var response = await next();
 
                 applicationRequest.Response = response;
-                applicationRequest.IsSuccess = true;
-                
+                applicationRequest.IsSuccessful = true;
+                applicationRequest.StatusCode = HttpStatusCode.OK;
+
                 return response;
             }
-            catch (Exception ex)
+            catch (RequestException requestException)
             {
-                SetException(ex);                
+                SetException(requestException);
+            }
+            catch (Exception exception)
+            {
+                SetException(exception);
             }
             finally
             {
