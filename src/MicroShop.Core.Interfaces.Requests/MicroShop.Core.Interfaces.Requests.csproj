@@ -18,4 +18,8 @@
     <Folder Include="Command\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MicroShop.Core.Models\MicroShop.Core.Models.csproj" />
+  </ItemGroup>
+
 </Project>

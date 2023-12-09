@@ -1,17 +1,12 @@
-﻿using MicroShop.Core.Behaviours.Pipelines.Base;
-using MicroShop.Core.Interfaces.Requests;
-using MicroShop.Core.Models.Exceptions;
-using MicroShop.Core.Models.Requests;
+﻿using MicroShop.Core.Interfaces.Requests;
 using System.Diagnostics;
 using MediatR;
 
 namespace MicroShop.Core.Behaviours.Pipelines.Requests.SubRequest
 {
-    internal class SubRequestPipeline<TRequest, TResponse> : ApplicationPipelineBase, IPipelineBehavior<TRequest, TResponse>
+    internal class SubRequestPipeline<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : ISubRequest
     {
-        public SubRequestPipeline(ApplicationRequest applicationRequest) 
-            : base(applicationRequest) { }
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
@@ -19,10 +14,11 @@ namespace MicroShop.Core.Behaviours.Pipelines.Requests.SubRequest
 
             activity?.AddEvent(new(typeof(TRequest).Name + " - Started!"));
 
-            var stopwatch = Stopwatch.StartNew();
+            var stopwatch = new Stopwatch();
 
             try
             {
+                stopwatch.Start();
                 var response = await next();
 
                 return response;

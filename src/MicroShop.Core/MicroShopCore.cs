@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MicroShop.Core.Behaviours.Pipelines;
-using MicroShop.Core.Models.Requests;
 using MicroShop.Core.Configuration;
 using System.Reflection;
 
@@ -17,8 +16,6 @@ namespace MicroShop.Core
             });
 
             services.AddPipelines();
-
-            services.AddScoped<ApplicationRequest>();
 
             return new MicroShopCoreBuilder(services);
         }

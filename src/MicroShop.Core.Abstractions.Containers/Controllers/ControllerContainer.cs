@@ -1,5 +1,4 @@
 ﻿using MicroShop.Core.Interfaces.Containers.Controllers;
-using MicroShop.Core.Models.Requests;
 using MediatR;
 
 namespace MicroShop.Core.Abstractions.Containers.Controllers
@@ -8,12 +7,9 @@ namespace MicroShop.Core.Abstractions.Containers.Controllers
     {
         public IMediator Mediator { get; }
 
-        public ApplicationRequest ApplicationRequest { get; }
-
-        public ControllerContainer(IMediator mediator, ApplicationRequest applicationRequest)
+        public ControllerContainer(IMediator mediator)
         {
             Mediator = mediator;
-            ApplicationRequest = applicationRequest;
         }
     }
 }

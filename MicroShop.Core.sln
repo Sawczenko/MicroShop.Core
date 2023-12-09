@@ -45,7 +45,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Core.Configuratio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Errors", "Errors", "{9F49C230-ACBF-4B12-BAC1-AAA2A9A465E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Core.Errors", "src\MicroShop.Core.Errors\MicroShop.Core.Errors.csproj", "{2A58869D-9CB1-4F85-8376-BB965F27B19F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Core.Errors", "src\MicroShop.Core.Errors\MicroShop.Core.Errors.csproj", "{2A58869D-9CB1-4F85-8376-BB965F27B19F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,13 +1,14 @@
 ﻿using MicroShop.Core.Interfaces.Containers.Requests.Command;
 using MicroShop.Core.Interfaces.Requests.Command;
 using MicroShop.Core.Interfaces.Database;
+using MicroShop.Core.Models.Requests;
 
 namespace MicroShop.Core.Abstractions.Requests.ResponseCommand
 {
     public abstract class CommandHandlerBase<TCommand, TResponse> : ICommandHandler<TCommand, TResponse>
         where TCommand : ICommand<TResponse>
     {
-        public abstract Task<TResponse> Handle(TCommand command, CancellationToken cancellationToken);
+        public abstract Task<RequestResult<TResponse>> Handle(TCommand command, CancellationToken cancellationToken);
     }
 
     public abstract class CommandHandlerBase<TCommand, TDbContext, TResponse> : ICommandHandler<TCommand, TResponse>
@@ -21,7 +22,7 @@ namespace MicroShop.Core.Abstractions.Requests.ResponseCommand
             DbContext = commandContainer.DbContext;
         }
 
-        public abstract Task<TResponse> Handle(TCommand request, CancellationToken cancellationToken);
+        public abstract Task<RequestResult<TResponse>> Handle(TCommand request, CancellationToken cancellationToken);
     }
 }
 
@@ -30,7 +31,7 @@ namespace MicroShop.Core.Abstractions.Requests.Command
     public abstract class CommandHandlerBase<TCommand> : ICommandHandler<TCommand>
         where TCommand : ICommand
     {
-        public abstract Task Handle(TCommand command, CancellationToken cancellationToken);
+        public abstract Task<RequestResult> Handle(TCommand command, CancellationToken cancellationToken);
     }
 
     public abstract class CommandHandlerBase<TCommand, TDbContext> : ICommandHandler<TCommand>
@@ -44,7 +45,7 @@ namespace MicroShop.Core.Abstractions.Requests.Command
             DbContext = commandContainer.DbContext;
         }
 
-        public abstract Task Handle(TCommand request, CancellationToken cancellationToken);
+        public abstract Task<RequestResult> Handle(TCommand request, CancellationToken cancellationToken);
     }
 
 

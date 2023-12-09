@@ -1,8 +1,10 @@
-﻿namespace MicroShop.Core.Interfaces.Requests.Command;
+﻿using MicroShop.Core.Models.Requests;
 
-public interface ICommand : IRequest {}
+namespace MicroShop.Core.Interfaces.Requests.Command;
 
-public interface ICommand<out TResponse> : IRequest<TResponse>
+public interface ICommand : IRequest<RequestResult> {}
+
+public interface ICommand<TResponse> : IRequest<RequestResult<TResponse>>
 {
     
 }

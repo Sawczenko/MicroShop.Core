@@ -1,6 +1,8 @@
-﻿namespace MicroShop.Core.Interfaces.Requests.Manager
-{
-    public interface IManager : IManagerRoot, IRequest { }
+﻿using MicroShop.Core.Models.Requests;
 
-    public interface IManager<out TResponse> : IManagerRoot, IRequest<TResponse> { }
+namespace MicroShop.Core.Interfaces.Requests.Manager
+{
+    public interface IManager : IManagerRoot, IRequest<RequestResult> { }
+
+    public interface IManager<TResponse> : IManagerRoot, IRequest<RequestResult<TResponse>> { }
 }
