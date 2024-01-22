@@ -1,4 +1,4 @@
-cd C:\Repozytoria\Sawczenko\MicroShop.Core\src\MicroShop.Core\bin\Debug
+cd "C:\Repozytoria\Sawczenko\MicroShop.Core\src\MicroShop.Core\bin\Debug"
 
 nuget add MicroShop.Core.1.0.14.nupkg -Source "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\"
 
