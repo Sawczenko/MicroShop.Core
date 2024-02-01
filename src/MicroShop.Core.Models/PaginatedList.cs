@@ -24,7 +24,7 @@
 
         public int TotalPages { get; }
 
-        public bool IsFirstPage => PageNumber == 1;
+        public bool IsFirstPage => PageNumber == 0;
 
         public bool IsLastPage => PageNumber == TotalPages;
 
