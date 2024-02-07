@@ -25,14 +25,12 @@ namespace MicroShop.Core.Extensions
 
         private static int GetAmountToSkip(int pageNumber, int pageSize)
         {
-            var skip = pageNumber * pageSize;
-
-            if (skip < 0)
+            if (pageNumber < 0)
             {
-                skip = 0;
+                pageNumber = 0;
             }
 
-            return skip;
+            return pageNumber * pageSize;
         }
     }
 }
