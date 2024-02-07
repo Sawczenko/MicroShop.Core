@@ -22,9 +22,9 @@ namespace MicroShop.Core.Abstractions.Requests.Manager
 
         public abstract Task<RequestResult<TResponse>> Handle(TManager manager, CancellationToken cancellationToken);
 
-        protected async Task<TResult> Send<TResult>(IRequest<TResult> request, CancellationToken cancellationToken)
+        protected Task<TResult> Send<TResult>(IRequest<TResult> request, CancellationToken cancellationToken)
         {
-            return await mediator.Send(request, cancellationToken);
+            return mediator.Send(request, cancellationToken);
         }
 
         protected async Task<RequestResult> Validate(IValidator validator, CancellationToken cancellationToken)
@@ -32,9 +32,14 @@ namespace MicroShop.Core.Abstractions.Requests.Manager
             return await mediator.Send(validator, cancellationToken);
         } 
 
-        protected async Task<TResult> Map<TResult>(object sourceObject)
+        protected Task<TResult> Map<TResult>(object sourceObject)
         {
-            return await Task.FromResult(mapperService.Map<TResult>(sourceObject));
+            return Task.FromResult(mapperService.Map<TResult>(sourceObject));
+        }
+
+        protected Task<TDestination> Map<TSource, TDestination>(TSource sourceObject)
+        {
+            return Task.FromResult(mapperService.Map<TSource, TDestination>(sourceObject));
         }
 
         protected RequestResult<TResponse> Success(TResponse response)
