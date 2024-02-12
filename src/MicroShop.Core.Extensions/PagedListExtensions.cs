@@ -3,7 +3,7 @@ using MicroShop.Core.Models;
 
 namespace MicroShop.Core.Extensions
 {
-    public static class PaginatedListExtensions
+    public static class PagedListExtensions
     {
         public static async Task<PagedList<T>> ToPagedListAsync<T>(this IQueryable<T> source, int pageNumber, int pageSize, CancellationToken token = default)
         {

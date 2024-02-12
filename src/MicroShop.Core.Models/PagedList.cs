@@ -41,4 +41,45 @@
             Items.Add(item);
         }
     }
+
+    public class PagedListDto<T>
+    {
+
+        public PagedListDto(IList<T> items, int pageSize, int pageNumber, int totalPages, bool isFirstPage, bool isLastPage, int count, int totalCount)
+        {
+            Items = items;
+            PageSize = pageSize;
+            PageNumber = pageNumber;
+            TotalPages = totalPages;
+            IsFirstPage = isFirstPage;
+            IsLastPage = isLastPage;
+            Count = count;
+            TotalCount = totalCount;
+        }
+
+        public IList<T> Items { get; }
+
+        public int PageSize { get; }
+
+        public int PageNumber { get; }
+
+        public int TotalPages { get; }
+
+        public bool IsFirstPage { get; }
+
+        public bool IsLastPage { get; }
+
+        public int Count { get; }
+
+        public int TotalCount { get; }
+
+        public T this[int index] => Items[index];
+
+        public IEnumerator<T> GetEnumerator() => Items.GetEnumerator();
+
+        public void Add(T item)
+        {
+            Items.Add(item);
+        }
+    }
 }
