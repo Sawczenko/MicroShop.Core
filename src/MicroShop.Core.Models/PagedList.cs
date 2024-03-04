@@ -11,7 +11,12 @@
         {
             PageNumber = pageNumber;
             PageSize = pageSize;
-            TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+
+            if (pageSize > 0)
+            {
+                TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+            }
+
             Items = items as IList<T> ?? new List<T>(items);
             TotalCount = count;
         }
