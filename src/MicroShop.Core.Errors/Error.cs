@@ -1,6 +1,5 @@
 ﻿using Ardalis.SmartEnum;
 using System.Net;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MicroShop.Core.Errors
 {
@@ -10,21 +9,15 @@ namespace MicroShop.Core.Errors
 
         public static readonly Error ERROR_UNKNOWN = new ErrorUnknown();
 
-        public string Message { get; protected set; }
+        protected string Message { get; init; }
 
         public abstract HttpStatusCode HttpStatusCode { get; }
 
         protected Error(string name, int value) : base(name, value) { }
 
-        public void ParametrizeMessage(params string[] parameters)
+        public string GetMessage()
         {
-            if (parameters.Any())
-            {
-                for (int i = 0; i < parameters.Length; i++)
-                {
-                    Message = Message.Replace("{" + i + "}", parameters[i]);
-                }
-            }
+            return Message;
         }
 
         private sealed class ErrorNone : Error

@@ -61,12 +61,12 @@ namespace MicroShop.Core.Abstractions.Controllers.Controllers
 
         private IActionResult CreateFailure(RequestResultBase requestResult)
         {
-            return StatusCode((int)requestResult.Error.HttpStatusCode, ErrorResponse.CreateResponse(requestResult.Error.Message, requestResult.Error.Value));
+            return StatusCode((int)requestResult.Error.HttpStatusCode, ErrorResponse.CreateResponse(requestResult.Message, requestResult.Error.Value));
         }
 
         private IActionResult CreateCriticalFailure()
         {
-            return StatusCode((int)HttpStatusCode.InternalServerError, ErrorResponse.CreateResponse(Error.ERROR_UNKNOWN.Message, Error.ERROR_UNKNOWN.Value));
+            return StatusCode((int)HttpStatusCode.InternalServerError, ErrorResponse.CreateResponse(Error.ERROR_UNKNOWN.GetMessage(), Error.ERROR_UNKNOWN.Value));
         }
     }
 }
