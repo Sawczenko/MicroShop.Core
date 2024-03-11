@@ -2,11 +2,18 @@
 
 namespace MicroShop.Core.Models.Requests;
 
-//TODO: Trzeba będzie tu wrócić, trochę się zrobił bałagan.
-
 public abstract class RequestResultBase
 {
-    public RequestResultBase(bool isSuccessful, Error error)
+
+    public readonly string Message;
+
+    public readonly bool IsSuccessful;
+
+    public bool IsFailure => !IsSuccessful;
+
+    public readonly Error Error;
+
+    protected RequestResultBase(bool isSuccessful, Error error)
     {
         IsSuccessful = isSuccessful;
         Error = error;
@@ -20,7 +27,7 @@ public abstract class RequestResultBase
         Message = message;
     }
 
-    public RequestResultBase(bool isSuccessful, Error error, params string[] errorParameters) : this(isSuccessful, error)
+    protected RequestResultBase(bool isSuccessful, Error error, params string[] errorParameters) : this(isSuccessful, error)
     {   
         if (!isSuccessful)
         {
@@ -42,14 +49,6 @@ public abstract class RequestResultBase
 
         return message;
     }
-
-    public readonly string Message;
-
-    public readonly bool IsSuccessful;
-
-    public bool IsFailure => !IsSuccessful;
-
-    public readonly Error Error;
 }
 
 
@@ -71,6 +70,8 @@ public class RequestResult : RequestResultBase
 
 public class RequestResult<T> : RequestResultBase
 {
+    public readonly T Result;
+
     private RequestResult(T result, bool isSuccessful, Error error, string message) : base(isSuccessful, error, message)
     {
         Result = result;
@@ -80,8 +81,6 @@ public class RequestResult<T> : RequestResultBase
     {
         Result = result;
     }
-
-    public readonly T Result;
 
     public static RequestResult<T> Success(T result) => new RequestResult<T>(result, true, Error.ERROR_NONE);
 
