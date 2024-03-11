@@ -17,7 +17,7 @@ public abstract class RequestResultBase
     {
         IsSuccessful = isSuccessful;
         Error = error;
-        Message = error.GetMessage();
+        Message = error.Message;
     }
 
     protected RequestResultBase(bool isSuccessful, Error error, string message)

@@ -66,7 +66,7 @@ namespace MicroShop.Core.Abstractions.Controllers.Controllers
 
         private IActionResult CreateCriticalFailure()
         {
-            return StatusCode((int)HttpStatusCode.InternalServerError, ErrorResponse.CreateResponse(Error.ERROR_UNKNOWN.GetMessage(), Error.ERROR_UNKNOWN.Value));
+            return StatusCode((int)HttpStatusCode.InternalServerError, ErrorResponse.CreateResponse(Error.ERROR_UNKNOWN.Message, Error.ERROR_UNKNOWN.Value));
         }
     }
 }

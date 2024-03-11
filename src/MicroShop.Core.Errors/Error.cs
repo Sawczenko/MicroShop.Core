@@ -9,16 +9,11 @@ namespace MicroShop.Core.Errors
 
         public static readonly Error ERROR_UNKNOWN = new ErrorUnknown();
 
-        protected string Message { get; init; }
+        public string Message { get; init; }
 
         public abstract HttpStatusCode HttpStatusCode { get; }
 
         protected Error(string name, int value) : base(name, value) { }
-
-        public string GetMessage()
-        {
-            return Message;
-        }
 
         private sealed class ErrorNone : Error
         {
