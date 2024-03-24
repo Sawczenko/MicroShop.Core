@@ -7,18 +7,18 @@
             Items = new List<T>();
         }
 
-        public PagedList(IEnumerable<T> items, int count, int pageNumber, int pageSize)
+        public PagedList(IEnumerable<T> items, int totalCount, int pageNumber, int pageSize)
         {
             PageNumber = pageNumber;
             PageSize = pageSize;
 
             if (pageSize > 0)
             {
-                TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+                TotalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
             }
 
             Items = items as IList<T> ?? new List<T>(items);
-            TotalCount = count;
+            TotalCount = totalCount;
         }
 
         public IList<T> Items { get; }

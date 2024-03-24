@@ -5,7 +5,7 @@ namespace MicroShop.Core.Models.Requests;
 public abstract class RequestResultBase
 {
 
-    public readonly string Message;
+    public string Message { get; private set; }
 
     public readonly bool IsSuccessful;
 
@@ -35,22 +35,19 @@ public abstract class RequestResultBase
         }
     }
 
-    public string CreateParametrizedMessage (params string[] parameters)
+    public string CreateParametrizedMessage(params string[] parameters)
     {
-        string message = Message;
-
         if (parameters.Any())
         {
             for (int i = 0; i < parameters.Length; i++)
             {
-                message = message.Replace("{" + i + "}", parameters[i]);
+                Message = Message.Replace("{" + i + "}", parameters[i]);
             }
         }
 
-        return message;
+        return Message;
     }
 }
-
 
 public class RequestResult : RequestResultBase
 {
@@ -88,6 +85,6 @@ public class RequestResult<T> : RequestResultBase
 
     public static RequestResult<T> Failure(RequestResult requestResult)
     {
-        return new RequestResult<T>(default, requestResult.IsSuccessful, requestResult.Error, requestResult.Message);
+        return new RequestResult<T>(default, false, requestResult.Error, requestResult.Message);
     }
 }

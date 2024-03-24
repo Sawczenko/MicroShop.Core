@@ -27,11 +27,11 @@ namespace MicroShop.Core.Errors
 
         private sealed class ErrorUnknown : Error
         {
-            public override HttpStatusCode HttpStatusCode => HttpStatusCode.OK;
+            public override HttpStatusCode HttpStatusCode => HttpStatusCode.InternalServerError;
 
             public ErrorUnknown() : base(nameof(ERROR_UNKNOWN), 1001)
             {
-                Message = string.Empty;
+                Message = "ERROR_UNKNOWN";
             }
         }
     }

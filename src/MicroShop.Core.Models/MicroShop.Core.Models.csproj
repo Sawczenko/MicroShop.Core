@@ -10,4 +10,8 @@
     <ProjectReference Include="..\MicroShop.Core.Errors\MicroShop.Core.Errors.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<InternalsVisibleTo Include="MicroShop.Core.Tests.Unit.Models" />
+	</ItemGroup>
+
 </Project>
