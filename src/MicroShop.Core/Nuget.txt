@@ -4,6 +4,7 @@ nuget add MicroShop.Core.1.0.14.nupkg -Source "C:\\Program Files (x86)\\Microsof
 
 dotnet nuget push ".\MicroShop.Core.1.0.16.nupkg" --api-key key --source "github"
 
-nuget source: https://api.nuget.org/v3/index.json 
+nuget source: https://nuget.pkg.github.com/Sawczenko/index.json
 
-dotnet nuget add source https://api.nuget.org/v3/index.json --name github --username Sawczenko --password <password> --store-password-in-clear-text
+dotnet nuget add source https://nuget.pkg.github.com/Sawczenko/index.json --name github --username Sawczenko --password <password> --store-password-in-clear-text
+

@@ -8,7 +8,7 @@ namespace MicroShop.Core.Abstractions.Requests.Query
     public abstract class QueryHandlerBase<TQuery, TResponse> : IQueryHandler<TQuery, TResponse>
         where TQuery : IQuery<TResponse>
     {
-        public abstract Task<RequestResult<TResponse>> Handle(TQuery query, CancellationToken cancellationToken);
+        public abstract Task<TResponse> Handle(TQuery query, CancellationToken cancellationToken);
     }
 
 

@@ -11,6 +11,7 @@ namespace MicroShop.Core.Behaviours.Pipelines
         public static void AddPipelines(this IServiceCollection services)
         {
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestLoggingPipeline<,>));
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(QueryLoggingPipeline<,>));
             //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ManagerPipeline<,>));
             //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(SubRequestPipeline<,>));
         }
