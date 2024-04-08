@@ -11,7 +11,7 @@ namespace MicroShop.Core.Middlewares
         private readonly RequestDelegate _next;
         private readonly ILogger _logger;
 
-        public ExceptionHandlingMiddleware(RequestDelegate next, ILogger logger)
+        public ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
         {
             _next = next;
             _logger = logger;
