@@ -1,13 +1,14 @@
 ﻿using MicroShop.Core.Interfaces.Containers.Requests.Query;
 using MicroShop.Core.Interfaces.Requests.Query;
 using MicroShop.Core.Interfaces.Database;
+using MicroShop.Core.Models.Requests;
 
 namespace MicroShop.Core.Abstractions.Requests.Query
 {
     public abstract class QueryHandlerBase<TQuery, TResponse> : IQueryHandler<TQuery, TResponse>
         where TQuery : IQuery<TResponse>
     {
-        public abstract Task<TResponse> Handle(TQuery query, CancellationToken cancellationToken);
+        public abstract Task<RequestResult<TResponse>> Handle(TQuery query, CancellationToken cancellationToken);
     }
 
 

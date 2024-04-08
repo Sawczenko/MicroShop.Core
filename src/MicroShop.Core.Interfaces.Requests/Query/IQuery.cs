@@ -1,4 +1,6 @@
-﻿namespace MicroShop.Core.Interfaces.Requests.Query
+﻿using MicroShop.Core.Models.Requests;
+
+namespace MicroShop.Core.Interfaces.Requests.Query
 {
-    public interface IQuery<out TResponse> : IQueryRoot, IRequest<TResponse> { }
+    public interface IQuery<TResponse> : IQueryRoot, IRequest<RequestResult<TResponse>> { }
 }
